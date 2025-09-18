@@ -6,19 +6,27 @@
 
 This recreates Jian-Yang's "Not Hotdog" app from [Silicon Valley Season 4](https://www.youtube.com/watch?v=tWwCK95X6go), where the character builds a simple binary classifier that can only identify hot dogs.
 
-## How It Works
+![Classifier Results](hot_dog_classifier_results.jpeg)
 
-It uses a fine-tuned ResNet-18 convolutional neural network built with FastAI to distinguish between hot dog and not hot dog images.
+## How it was trained
+
+It uses a fine-tuned ResNet50 convolutional neural network built with FastAI to distinguish between hot dog and not hot dog images. Check Hot_Dog_or_Not_Hot_Dog.ipynb for detailes
 
 **Architecture:**
-- Pre-trained ResNet-18 model
-- Transfer learning with 4 epochs of fine-tuning
+- Pre-trained ResNet50 model
+- Transfer learning with 20 epochs of fine-tuning
 - Binary classification (hot dog vs not hot dog)
-- 192x192 pixel image input
+- 224x224 pixel image input with data augmentation
+- Includes data cleaning workflow with ImageClassifierCleaner
 
-## Results
-
-![Classifier Results](hot_dog_classifier_results.jpeg)
+**Training Process:**
+1. Downloads Hot Dog dataset from Kaggle
+2. Creates DataLoaders with 80/20 train/validation split
+3. Applies data augmentation (random crops, transforms)
+4. Fine-tunes ResNet50 for 20 epochs
+5. Evaluates with confusion matrix and top losses
+6. Provides data cleaning interface
+7. Exports trained model as `model.pkl`
 
 ## Installation
 
@@ -26,7 +34,7 @@ It uses a fine-tuned ResNet-18 convolutional neural network built with FastAI to
 
 1. Clone this repository:
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/krjadhav/hot_dog_or_not_hot_dog.git
 cd seefood
 ```
 
