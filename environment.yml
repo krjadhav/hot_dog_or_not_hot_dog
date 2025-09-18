@@ -1,0 +1,18 @@
+name: seefood
+channels:
+  - fastai
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.9
+  - pytorch
+  - torchvision
+  - fastai
+  - gradio
+  - pillow
+  - numpy
+  - matplotlib
+  - jupyter
+  - pip
+  - pip:
+    - gradio

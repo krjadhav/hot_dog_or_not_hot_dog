@@ -1,42 +1,47 @@
 # Hot Dog or Not Hot Dog 🌭
 
-A computer vision classifier that determines whether an image contains a hot dog or not, inspired by the iconic app from HBO's Silicon Valley.
-
-## Inspiration
-
-This project recreates Jian-Yang's "Not Hotdog" app from [Silicon Valley Season 4](https://www.youtube.com/watch?v=tWwCK95X6go), where the character builds a simple binary classifier that can only identify hot dogs.
-
 > "I can only do hot dog, not hot dog. Nothing else."
 
-## How It Works
-
-The classifier uses a fine-tuned ResNet-18 convolutional neural network built with FastAI to distinguish between hot dog and not hot dog images.
-
-**Architecture:**
-- Pre-trained ResNet-18 model
-- Transfer learning with 4 epochs of fine-tuning
-- Binary classification (hot dog vs not hot dog)
-- 192x192 pixel image input
-
-## Results
+[HuggingFace Model](https://huggingface.co/spaces/habuTusk/seefood)
 
 ![Classifier Results](hot_dog_classifier_results.jpeg)
 
-The model successfully identifies various hot dog presentations while correctly classifying other foods as "not hot dog," just like Jian-Yang's app.
+
+This recreates Jian-Yang's "Not Hotdog" app from [Silicon Valley Season 4](https://www.youtube.com/watch?v=tWwCK95X6go), where the character builds a simple binary classifier that can only identify hot dogs.
+
+
+
+- Install [Mambaforge](https://github.com/conda-forge/miniforge#mambaforge) or [Miniconda](https://docs.conda.io/en/latest/miniconda.html)
+
+### Installation
+
+1. Clone this repository:
+```bash
+git clone <your-repo-url>
+cd seefood
+```
+
+2. Create and activate the conda environment:
+```bash
+mamba env create -f environment.yml
+mamba activate seefood
+```
+
+3. Run the application:
+```bash
+python app.py
+```
+
+The Gradio interface will launch and be available at `http://localhost:7860`
+
+## Files
+- `app.py` - Main Gradio application
+- `model.pkl` - Pre-trained FastAI model
+- `environment.yml` - Conda environment specification
+- `hot_dog.jpg` - Example hotdog image
+- `not_hotdog.jpg` - Example non-hotdog image
 
 ## Usage
-
-1. Install dependencies:
-   ```bash
-   pip install fastai kaggle
-   ```
-
-2. Configure Kaggle credentials in `main.py`
-
-3. Run the Jupyter notebook cells in `main.py`
-
-The model will download the dataset, train on hot dog images, and display prediction results on test images.
-
-## Dataset
-
-Uses the "Hot Dog Not Hot Dog" dataset from Kaggle, containing thousands of labeled food images for training and validation.
+1. Upload an image or select from the examples
+2. The model will classify it as either "hotdog" or "not_hotdog"
+3. View the confidence scores for each category

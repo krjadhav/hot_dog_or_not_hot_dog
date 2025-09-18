@@ -1,0 +1,5 @@
+gradio==4.44.0
+torch>=1.13.0
+torchvision>=0.14.0
+fastai>=2.7.0
+pillow>=8.0.0
